@@ -11,13 +11,100 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <title>NewJeans Forum</title>
+
+    <style>
+        .navbar .user-profile {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            right: 15px;
+        }
+
+        .navbar .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .navbar .user-profile img:hover {
+            transform: scale(1.1);
+        }
+        
+        .sidebar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 999px;
+            height: 100%;
+            width: 250px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .sidebar .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar .profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .sidebar .profile .username {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .sidebar .menu-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #555;
+        }
+
+        .sidebar .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar .menu-item a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .sidebar .menu-item a:hover {
+            color: #3498db;
+        }
+
+        
+
+    </style>
 </head>
 <body>
     <header>
-        <nav>
-            <a href="fansMain.html"><img id="nav-logo" src="assets/logo/web-logo.png"></a>
+        <nav class="navbar">
+            <a href="fansMain.php"><img id="nav-logo" src="assets/logo/web-logo.png"></a>
             <ul>
-                <li class="nav-menu"><a href="fansMain.html">HOME</a></li>
+                <li class="nav-menu"><a href="fansMain.php">HOME</a></li>
                 <li class="nav-menu"><a href="html/members.html">MEMBERS</a>  
                     <ul class = "nj-members">
                         <li><a href = "html/member.html?member=minji">Kim Minji</a></li>
@@ -28,11 +115,7 @@
                     </ul></li>
                 <li class="nav-menu"><a href="forum_post/forums.php">FORUMS</a></li>
                 <li class="nav-menu"><a href="Event/showEvent.php">EVENTS</a></li>
-                <li class="nav-menu">
-                    <div class="user-profile" id="userProfile" onclick="toggleSidebar()">
-                        <!-- <img src='<?php echo ($profile['profile_picture'] != null) ? "profile/uploads_profile" . $profile['profile_picture'] : "Picture/image16.jpg"; ?>' alt="Profile Picture"> -->
-                    </div>
-                </li>
+                <li class="nav-menu"><a href="profile/updateProfile.php">PROFILE</li>
             </ul>
         </nav>
     </header>
@@ -138,5 +221,6 @@
     <script src="js/background_video.js"></script>
     <script src="js/nav-bar.js"></script>
     <script src="js/banner.js"></script>
+    <script src="/profile/sidebar.js"></script>
 </body>
 </html>

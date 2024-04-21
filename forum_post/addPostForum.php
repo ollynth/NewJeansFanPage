@@ -1,11 +1,8 @@
 <?php
 session_start();
 require_once("../koneksi.php");
-// echo "Halaaww";
-// var_dump($_SESSION);
 if (isset($_SESSION['user_id'])) {
     $idFans = $_SESSION['user_id'];
-    // echo "Id fans : $idFans";
 
     if (isset($_POST['addPost'])) {
         if ($_FILES['gambar']['error'] === UPLOAD_ERR_OK) {
