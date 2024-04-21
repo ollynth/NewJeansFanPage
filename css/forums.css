@@ -1,0 +1,83 @@
+main h1 {
+    color: white;
+    text-align: center;
+    padding-top: 40px;
+  }
+  
+  .container {
+    width: 40vw;
+    margin: 0 auto;
+  }
+  
+  main form {
+    background-color: #ffffff;
+    padding: 30px;
+    color: black;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  main label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 3px;
+    border: 1px solid #dddddd;
+  }
+  
+  textarea {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 100px;
+    max-height: 100px;
+  }
+  
+  input[type="text"]:focus,
+  textarea:focus {
+    background-color: beige;
+  }
+  
+  input[type="submit"] {
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: gray;
+  }
+  
+  main ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  main li {
+    background-color: #ffffff;
+    color: black;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  main h3 {
+    margin: 0 0 10px;
+  }
+  
+  main p {
+    margin: 0;
+  }
+  

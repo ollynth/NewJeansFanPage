@@ -1,0 +1,51 @@
+@media screen and (max-width: 640px) {
+    #members-photo-viewer {
+        width: 100%;
+    }
+
+    .members {
+        max-width: 100%;
+    }
+
+    .member-box {
+        width: 80%;
+        margin: auto;
+        margin-top: 30px;
+    }
+
+    .member-box figcaption h3 {
+        opacity: 1;
+        color: white;
+    }
+
+    .member-box figcaption p {
+        opacity: 1;
+        color: white;
+    }
+}
+
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+    #members-photo-viewer {
+        width: 100%;
+    }
+
+    .members {
+        max-width: 100%;
+    }
+
+    .member-box {
+        width: 30%;
+        margin: auto;
+        margin: 30px 10px 0;
+    }
+
+    .member-box figcaption h3 {
+        opacity: 1;
+        color: white;
+    }
+
+    .member-box figcaption p {
+        opacity: 1;
+        color: white;
+    }
+}

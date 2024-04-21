@@ -1,0 +1,26 @@
+main {
+    padding: 0;
+    margin: auto;
+}
+
+body {
+    padding: 0;
+    margin: auto;
+}
+
+#videoBackground {
+    margin-top: -17px;
+    position: relative;
+    width: 100%;
+    z-index: -1;
+}
+
+#muteButton img {
+    height: 75px;
+    width: auto;
+    position: fixed;
+    top: 87vh;
+    right: 15px;
+    cursor: pointer;
+    z-index: 2;
+}

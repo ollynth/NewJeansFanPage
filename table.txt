@@ -1,0 +1,51 @@
+CREATE TABLE users (
+    id INT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    passwords VARCHAR(255) NOT NULL 
+);
+
+CREATE TABLE Fans (
+    id INT PRIMARY KEY,
+    gender ENUM('M', 'F') NULL,
+    profile_picture MEDIUMBLOB NULL,
+    phone_number VARCHAR(20),
+    email VARCHAR(255),
+    FOREIGN KEY (id) REFERENCES users(id)
+);
+
+CREATE TABLE Post (
+    id int(11) PRIMARY KEY,
+    id_fans int(11),
+    post_title VARCHAR(255) NOT NULL,
+    post_desc varchar(255),
+    post_pict mediumblob NULL,
+    FOREIGN KEY (id_fans) REFERENCES fans(id)
+);
+
+CREATE TABLE events(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	event_name VARCHAR(100) NOT NULL,
+	date_time Datetime NOT NULL,
+	location VARCHAR(100) Not Null,
+	event_desc Varchar(300) Not Null,
+	ticket VARCHAR(300) Not null,
+	event_poster VARCHAR(255) Null
+)
+
+CREATE TABLE like_post (
+    id_fans INT,
+    id_post INT,
+    stats BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (id_fans) REFERENCES fans(id),
+    FOREIGN KEY (id_post) REFERENCES post(id)
+);
+
+CREATE TABLE report (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_fans INT,
+    id_post INT,
+    message TEXT,
+    report_date TIMESTAMP,
+    FOREIGN KEY (id_fans) REFERENCES fans(id),
+    FOREIGN KEY (id_post) REFERENCES post(id)
+);

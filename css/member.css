@@ -1,0 +1,111 @@
+#member-info::-webkit-scrollbar {
+    width: 5px;
+}
+  
+#member-info::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+}
+   
+#member-info::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+}
+  
+#member-info::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+main {
+    width: 80%;
+    margin: auto;
+}
+
+#viewer {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+}
+
+#photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin-left: 60px;
+}
+
+#desc {
+    display: flex;
+    width: 70%;
+    margin: 8%;
+    position: relative;
+}
+
+#mem-img {
+    display: flex;
+    height: 26vw;
+    border-radius: 20px;
+}
+
+video {
+    width: 100%;
+    opacity: 1;
+    position: relative;
+    z-index: 0;
+    border-radius: 5px;
+}
+
+#member-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    opacity: 0;
+    overflow-y: scroll;
+    border-radius: 5px;
+}
+
+#member-info * {
+    margin-left: 15px;
+}
+
+#member-arrow {
+    width: 100%;
+    display: inline-block;
+}
+
+.mem-button {
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    width: 8vw;
+    height: 7vh;
+    text-align: center;
+    transition: ease 0.3s;
+}
+
+.mem-button p {
+    font-size: 2vh;
+}
+
+.mem-button:active {
+    transform: scale(0.9);
+}
+
+.mem-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.right {
+    float: right;
+}
+
+#prev, #next {
+    display: inline-block;
+    margin: 10px;
+}

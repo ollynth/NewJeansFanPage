@@ -1,0 +1,118 @@
+@media screen and (max-width: 640px) {
+    main {
+        width: 100%;
+    }
+
+    #viewer {
+        display: inline-block;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    #photo {
+        width: 100%;
+        margin: auto;
+    }
+
+    #mem-img {
+        width: 50vw;
+        height: auto;
+    }
+
+    #desc {
+        width: 100%;
+        margin: auto;
+        margin-top: 20px;
+        height: 100%;
+    }
+
+    .mem-button {
+        width: 80px;
+        height: 40px;
+    }
+
+    .mem-button p {
+        margin: auto;
+        text-align: center;
+        margin-top: 12%;
+    }
+
+    video {
+        opacity: 0;
+    }
+
+    #member-info {
+        opacity: 1;
+        display: block;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    #member-info ul li {
+        margin-left: -5px;
+    }
+}
+
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+    main {
+        width: 100%;
+        overflow-y: auto;
+    }
+
+    #viewer {
+        display: inline-block;
+        width: 100%;
+        margin-top: 30px;
+        height: auto;
+    }
+
+    #photo {
+        width: 100%;
+        margin: auto;
+    }
+
+    #mem-img {
+        width: 23vw;
+        height: auto;
+        /* width: auto; */
+    }
+
+    #desc {
+        width: 100%;
+        margin: auto;
+        margin-top: 75px;
+        height: 450px;
+        display: block;
+    }
+
+    video {
+        width: 50%;
+        height: auto;
+        margin-left: 10px;
+        display: inline-block;
+    }
+
+
+    #member-info {
+        opacity: 1;
+        display: inline-block;
+        height: 100%;
+        width: 45%;
+        margin-left: 11px;
+        overflow: visible;
+    }
+
+    .mem-button {
+        width: 150px;
+        height: 50px;
+        display: block;
+        margin-top: 100px
+    }
+
+    .mem-button p {
+        margin: auto;
+        text-align: center;
+        font-size: larger;
+    }
+}

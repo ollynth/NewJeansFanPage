@@ -1,0 +1,155 @@
+h1 {
+	text-align : center;
+}
+
+.banner-container {
+	position : relative;
+	width: 100%;
+	height: 100%;
+}
+
+.banner{
+	width : 70vw;
+	height : 65vh;
+	position : relative;
+	margin : 0 auto;
+}
+
+.content iframe{
+	position : absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.button {
+	position : absolute;
+	background : none;
+	border : 0;
+	color : grey;
+	font-size : 75px;
+	top : 50%;
+	z-index : 2;
+	transform : translateY(-50%);
+	padding : 5px;
+	transition: color 700ms ease-in,
+				background-color 600ms ease-in;
+	border-radius : 10%
+}
+
+.button:hover,
+.button:active{
+	color : white;
+	background-color : black;
+}
+
+.button.prev {
+	left:15px;
+}
+
+.button.next {
+	right:15px;
+}
+
+.slide-dots {
+	display : flex;
+	column-gap : 15px;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	margin-top: 5px;
+	z-index:2;
+}
+
+.slide-dots p {
+	width : 20px;
+	height : 20px;
+	border-radius : 50%;
+	background-color : grey;
+	opacity:0.75;
+}
+
+.slide-dots .k1 {
+	background-color : white;
+}
+
+.slide-text{
+	margin : 0px auto 50px auto;
+	width : 73vw;
+	height : auto;
+	position : relative;
+	border : 2px solid grey;
+	padding : 5px 10px;
+	transition: background-color 500ms ease-in-out;
+	font-size : 17px;
+}
+
+.slide-text p{
+	text-align : justify;
+	margin : 0px;
+}
+
+.slide-text:hover{
+	background-color : rgba(105, 105, 105, 0.2);
+}
+
+
+@media all and (min-width: 521px) and (max-width : 1030px) {
+	.banner{
+		width : 65vw;
+		height : 35vh;
+	}
+
+	.button {
+		font-size : 70px;
+	}
+	
+	.button:hover,
+	.button:active{
+		color : black;
+		background-color : rgba(255, 255, 255, 0.1);
+	}
+
+	.button.prev {
+		left:1px;
+	}
+
+	.button.next {
+		right:1px;
+	}
+
+	.slide-dots p {
+		width : 15px;
+		height : 15px;
+	}
+
+	.slide-text{
+		width : 68vw;
+		height : auto;
+		position : relative;
+		font-size : 15px;
+	}
+}
+
+@media all and (max-width : 520px) {
+
+	.banner{
+		width : 95vw;
+		height : 30vh;
+	}
+
+	.button {
+		font-size : 45px;
+		padding : 0px;
+	}
+
+	.slide-dots {
+		z-index:-1;
+		opacity : 0;
+	}
+
+	.slide-text{
+		width : 85vw;
+		height : auto;
+		font-size : 12px;
+	}
+}

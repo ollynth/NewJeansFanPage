@@ -1,0 +1,13 @@
+.border{
+	width : 70vw;
+	height : auto;
+	position : relative;
+	margin : 0 auto 20px;
+	border: 1px solid white;
+}
+
+.swiper {
+	width: 800px;
+	height: auto;
+	margin-top: 70px;
+  }
