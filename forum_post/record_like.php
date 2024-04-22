@@ -1,26 +1,34 @@
 <?php
-require_once("koneksi.php");
+session_start();
+require_once("../koneksi.php");
 
-$userID = $_SESSION['userId'];
-$postID = $_POST['postId'];
+if(isset($_SESSION['user_id']) && isset($_POST['postId'])) {
+    $userId = $_SESSION['user_id'];
+    $postId = $_POST['postId'];
 
-$sql = "SELECT * FROM like_post WHERE id_fans = $userID AND id_post = $postID";
-$result = $conn->query($sql);
+    // Check if the user has already liked the post
+    $checkSql = "SELECT * FROM like_post WHERE id_fans = $userId AND id_post = $postId";
+    $checkResult = $conn->query($checkSql);
 
-if ($result->num_rows == 0) {
-    $insertSql = "INSERT INTO like_post (id_fans, id_post, stats) VALUES ($userID, $postID, TRUE)";
-    if ($conn->query($insertSql) === TRUE) {
-        echo "Like recorded successfully";
+    if ($checkResult->num_rows == 0) {
+        // If the user has not liked the post, insert a new like record
+        $insertSql = "INSERT INTO like_post (id_fans, id_post, stats) VALUES ($userId, $postId, TRUE)";
+        if ($conn->query($insertSql) === TRUE) {
+            echo "Like recorded successfully";
+        } else {
+            echo "Error: " . $conn->error;
+        }
     } else {
-        echo "Error: " . $conn->error;
+        // If the user has already liked the post, delete the like record
+        $deleteSql = "DELETE FROM like_post WHERE id_fans = $userId AND id_post = $postId";
+        if ($conn->query($deleteSql) === TRUE) {
+            echo "Unlike recorded successfully";
+        } else {
+            echo "Error: " . $conn->error;
+        }
     }
 } else {
-    $deleteSql = "DELETE FROM like_post WHERE id_fans = $userID AND id_post = $postID";
-    if ($conn->query($deleteSql) === TRUE) {
-        echo "Unlike recorded successfully";
-    } else {
-        echo "Error: " . $conn->error;
-    }
+    echo "Error: Session or postId is not set";
 }
 
 $conn->close();

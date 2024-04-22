@@ -120,6 +120,7 @@
                   </ul></li>
               <li class="nav-menu"><a href="../forum_post/forums.php">FORUMS</a></li> 
               <li class="nav-menu"><a href="../Event/showEvent.php">EVENTS</a></li>
+              <li class="nav-menu"><a href="updateProfile.php">PROFILE</a></li>
           </ul>
       </nav>
     </header>

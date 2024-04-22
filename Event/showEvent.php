@@ -223,7 +223,8 @@
                         <li><a href = '../html/member.html?member=hyein'>Lee Hyein</a></li>
                     </ul></li>
                     <li class='nav-menu'><a href='../forum_post/forums.php'>FORUMS</a></li>
-                    <li class='nav-menu'><a href='showEvent.php'>EVENTS</a></li>";
+                    <li class='nav-menu'><a href='showEvent.php'>EVENTS</a></li>
+                    <li class='nav-menu'><a href='../profile/updateProfile.php'>PROFILE</a></li>";
                 ?>
             </ul>
         </nav>

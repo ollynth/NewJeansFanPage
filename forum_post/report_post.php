@@ -4,6 +4,15 @@
     <title>Report Post</title>
     <link rel="stylesheet" href="../css/main.css">
     <style>
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      a:hover {
+        color : blanchedalmond;
+        text-decoration: underline;
+      }
       .container {
         display: flex;
         justify-content: center;
@@ -49,11 +58,12 @@
         display: inline-block;
         text-align: left;
       }
+      
     </style>
 </head>
 <body>
-    <h1>Report Post</h1>
-    <div class="container">
+  <div class="container">
+      <h1><a href="forums.php">Report Post</a></h1>
         <?php
         require_once("../koneksi.php");
         if(isset($_GET['postId'])) {

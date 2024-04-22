@@ -102,6 +102,7 @@
                   </ul></li>
               <li class="nav-menu"><a href="forums.php">FORUMS</a></li> 
               <li class="nav-menu"><a href="../Event/showEvent.php">EVENTS</a></li>
+              <li class="nav-menu"><a href="../profile/updateProfile.php">PROFILE</a></li>
           </ul>
       </nav>
     </header>
@@ -140,7 +141,8 @@
                           <p class='post_title'> ".$row['post_title']."</p>
                           <div class='post-buttons'>
                             <a href='javascript:void(0);' class='like-button' id='like-button-".$postIndex."' onclick='toggleLike(".$postIndex.")'></a>
-                            <a href='' class='comment-button' ></a>
+                            // todo :
+                            <a href='#' class='comment-button' data-post-id='" . $postIndex ."' onclick='loadComments(" .$postIndex . ")'></a>
                             <a href='report_post.php?postId=".$postIndex."' class='report-button'></a>
 
                           </div>
@@ -155,6 +157,13 @@
           }
         ?>
       </div>
+      <!-- comment pop up -->
+      <div id="commentPopup" class="commentPopup">
+        <div class="modal-content">
+            <span class="close" onclick="closeCommentPopup()">&times;</span>
+            <div id="commentContainer"></div>
+        </div>
+    </div>
     </main>
 
     <footer>
@@ -166,24 +175,27 @@
   </body>
 </html>
 <script>
-      function toggleLike(postId) {
-          var likeButton = $('#like-button-' + postId);
-          var userId = <?php echo isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 'null'; ?>;
-          
-          $.ajax({
-              url: 'record_like.php',
-              method: 'POST',
-              data: { postId: postId, userId: userId },
-              success: function(response) {
-                  if (response === 'Like recorded successfully') {
-                      likeButton.addClass('liked');
-                  } else if (response === 'Unlike recorded successfully') {
-                      likeButton.removeClass('liked');
-                  }
-              },
-              error: function(xhr, status, error) {
-                  console.error(error); 
-              }
-          });
-      }
+$(document).ready(function() {
+    function toggleLike(postId) {
+        var likeButton = $('#like-button-' + postId);
+        var userId = <?php echo isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 'null'; ?>;
+        
+        $.ajax({
+            url: 'record_like.php',
+            method: 'POST',
+            data: { postId: postId, userId: userId },
+            success: function(response) {
+                if (response === 'Like recorded successfully') {
+                    likeButton.addClass('liked');
+                } else if (response === 'Unlike recorded successfully') {
+                    likeButton.removeClass('liked');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error(error); 
+            }
+        });
+    }
+
+});
 </script>
