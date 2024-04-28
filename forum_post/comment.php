@@ -1,16 +1,16 @@
 <?php
-require 'Prepare SQL/koneksi.php';
+require '../koneksi.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id_post'])) {
     $post_id = $_GET['id_post'];
 
     // Query untuk mendapatkan informasi postingan berdasarkan post_id
-    $sql_post = "SELECT * FROM post WHERE id_post = '$post_id'";
+    $sql_post = "SELECT * FROM post WHERE id = '$post_id'";
     $result_post = $conn->query($sql_post);
     $row_post = $result_post->fetch_assoc();
 
     // Query untuk mendapatkan semua komentar pada postingan ini
-    $sql_comments = "SELECT * FROM comment WHERE id_post = '$post_id'";
+    $sql_comments = "SELECT * FROM comments WHERE id_post = '$post_id'";
     $result_comments = $conn->query($sql_comments);
 }
 
@@ -35,6 +35,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id_post'])) {
         .profile span{
             display: flex;
         }
+        .container{
+            color: black;
+        }
     </style>
 </head>
 <body>
@@ -51,13 +54,17 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id_post'])) {
             <?php
             while ($row_comment = $result_comments->fetch_assoc()) {
                 $id = $row_comment['id_fans'];
-                $sql = "SELECT * FROM users WHERE id_fans = " . $id;
+                $sql = "SELECT * FROM fans WHERE id = " . $id;
                 $result = mysqli_query($conn, $sql);
                 $user = mysqli_fetch_assoc($result);
+                
+                $sql2 = "SELECT * FROM users WHERE id = " . $id;
+                $result2 = mysqli_query($conn, $sql2);
+                $user_name = mysqli_fetch_assoc($result2);
 
                 echo "<div class='comment'>";
-                echo "<p>" . $row_comment['comments'] . "</p>";
-                echo "<small>Commented by <div class='profile'><img src='" . (($user['profile_picture'] != null) ? 'uploads/' . $user['profile_picture'] : 'Picture/image16.jpg') . "' alt='Avatar'><span>". $user['username']. "<span></div></small>";
+                echo "<p>" . $row_comment['comment'] . "</p>";
+                echo "<small>Commented by <div class='profile'><img src='" . (($user['profile_picture'] != null) ? '../profile/upload_profile/' . $user['profile_picture'] : '../profile/upload_profile/unknown.jpg') . "' alt='Avatar'><span>". $user_name['username']. "<span></div></small>";
                 echo "</div>";
             }
             ?>

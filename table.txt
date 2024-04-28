@@ -49,3 +49,12 @@ CREATE TABLE report (
     FOREIGN KEY (id_fans) REFERENCES fans(id),
     FOREIGN KEY (id_post) REFERENCES post(id)
 );
+
+CREATE TABLE comments (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    id_fans INT,
+    id_post INT,
+    comment VARCHAR(255),
+    FOREIGN KEY (id_fans) REFERENCES fans(id),
+    FOREIGN key (id_post) REFERENCES post(id)
+);

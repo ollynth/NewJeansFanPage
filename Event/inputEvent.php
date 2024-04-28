@@ -23,24 +23,25 @@
         }
 
         .wrapper {
-            width: 600px;
+            width: 450px;
             background: transparent;
             border: 2px solid rgba(255, 255, 255, .2);
             backdrop-filter: blur(20px);
             color: white;
             border-radius: 10px;
-            padding: 30px 40px;
+            padding: 15px 20px;
+            margin: 20px;
         }
 
         .wrapper h1 {
-            font-size: 40px;
+            font-size: 30px;
             text-align: center;
         }
 
         .input-box {
             position: relative;
             width: 100%;
-            height: 50px;
+            height: 30px;
             margin: 30px 0;
         }
 
@@ -55,7 +56,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, .2);
             font-size: 16px;
             color: white;
-            padding: 20px 45px 20px 20px;
+            padding: 20px 35px 20px;
         }
 
         .input-box input::placeholder {

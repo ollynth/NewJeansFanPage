@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['user_id'])) {
+    header("Location: ../fansMain.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -148,7 +155,7 @@
                     </div>
                     <button type = "submit" class="btn" name = "sub">Send</button>
                     <div class="register-link">
-                        <p>Remember your password? <a href="login.html">Login</a></p>
+                        <p>Remember your password? <a href="login.php">Login</a></p>
                     </div>
                 </form>
             </div>

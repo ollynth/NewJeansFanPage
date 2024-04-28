@@ -2,7 +2,7 @@
 require_once("../koneksi.php");
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "Select * from events where id = '$id'";
+    $sql = "SELECT * from events where id = '$id'";
     $result = $conn->query($sql);
     if ($result) {
         if ($result->num_rows > 0) {
@@ -104,7 +104,7 @@ if (isset($_GET['id'])) {
            <body>
            <div class='main'>
                <div class='wrapper'>
-                   <form action='postEvent.php' method='post' enctype='multipart/form-data'>
+                   <form method='post' enctype='multipart/form-data'>
                        <h1>Edit Event</h1>
                        <div class='input-box'>
                            <input type='file' required name='poster1' value = '".$row['event_poster']."'>
@@ -131,6 +131,34 @@ if (isset($_GET['id'])) {
            </body>
            </html>
            ";
+        }
+        if (isset($_POST['edit'])) {
+            $poster = $_FILES['poster1']['name'];
+            $judul = $_POST['title'];
+            $tgl_waktu = $_POST['date&time'];
+            $lokasi= $_POST['location'];
+            $deskripsi = $_POST['desc'];
+            $tiket = $_POST['ticket'];
+
+            $target_dir = "Upload/";
+            $target_file = $target_dir . basename($_FILES["poster1"]["name"]);
+
+            if (file_exists($target_file)) {
+                echo "<script>alert('Maaf, file sudah ada.');</script>";
+            } else {
+                if (move_uploaded_file($_FILES["poster1"]["tmp_name"], $target_file)) {
+                    $sql = "Update events set event_poster = '$poster', event_name = '$judul', date_time = '$tgl_waktu', location = '$lokasi', event_desc = '$deskripsi', ticket = '$tiket' where id = '$id'";
+                    $result = $conn->query($sql);
+                    if ($result) {
+                        echo "<script>alert('Jadwal Baru berhasil diubah');</script>";
+                        echo "<script>window.location='addEditDel.php';</script>";
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                } else {
+                    echo "<script>alert(Maaf, terjadi kesalahan saat mengunggah file.');</script>";
+                }
+            }
         }
     }
 }

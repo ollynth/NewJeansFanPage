@@ -14,13 +14,14 @@ if (isset($_POST['sub'])) {
         
         if (file_exists($target_file)) {
             echo "<script>alert('Maaf, file sudah ada.');</script>";
+            echo "<script>window.location='inputEvent.php';</script>";
         } else {
             if (move_uploaded_file($_FILES["poster1"]["tmp_name"], $target_file)) {
                 $sql = "INSERT into events(event_poster,event_name,date_time,location,event_desc,ticket) values ('$post','$title','$dateTime','$location','$desc','$ticket');";
                 $result = $conn->query($sql);
                 if ($result) {
                     echo "<script>alert('Jadwal Baru berhasil ditambahkan');</script>";
-                    echo "<script>window.location='showEvent.php';</script>";
+                    echo "<script>window.location='AddEditDel.php';</script>";
                 } else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }

@@ -9,7 +9,7 @@ if(isset($_POST['postId']) && isset($_POST['reason']) && isset($_SESSION['user_i
     $reportDate = date('Y-m-d H:i:s'); 
 
     // Insert data ke tabel report
-    $insertSql = "INSERT INTO report (id_post, message, report_date, id_fans) VALUES ($postId, '$reason', '$reportDate', $fansId)";
+    $insertSql = "INSERT INTO report (id_post, message, report_date, id_fans) VALUES ('$postId', '$reason', '$reportDate', '$fansId')";
     if ($conn->query($insertSql) === TRUE) {
         echo "<script>alert('Berhasil Melaporkan Post, user $fansID');</script>";
         header("Location: forums.php"); // balik ke halaman forum

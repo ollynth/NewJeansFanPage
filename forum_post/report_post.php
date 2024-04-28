@@ -6,18 +6,20 @@
     <style>
       a {
         text-decoration: none;
-        color: white;
+        color: black;
       }
 
       a:hover {
-        color : blanchedalmond;
+        color : blue;
         text-decoration: underline;
       }
       .container {
+        z-index: 999;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        color: black;
       }
 
       .gbr_post {
@@ -68,13 +70,14 @@
         require_once("../koneksi.php");
         if(isset($_GET['postId'])) {
             $postId = $_GET['postId'];
+            echo $postId;
             $sql = "SELECT u.id as user_id, u.username, p.id as post_id , p.post_title, p.post_desc, p.post_pict
               FROM post p
               JOIN users u 
-              WHERE u.id = p.id_fans AND p.id = $postId;";
+              WHERE u.id = p.id_fans AND p.id = '$postId';";
 
             $result = $conn->query($sql);
-            if ($result) {
+            if ($result == true) {
                 while($row = mysqli_fetch_assoc($result)){
                     $postIndex = $row['post_id'];
                       echo "<div class='gbr_post'> <img src = 'Forum_Upload/".$row['post_pict']."' alt = 'hehe'>

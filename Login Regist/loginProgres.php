@@ -28,12 +28,12 @@
                     }
                 } else {
                     echo "<script>alert('Password tidak cocok');</script>";
-                    echo "<script>window.location='login.html';</script>";
+                    echo "<script>window.location='login.php';</script>";
                     exit;
                 }
             } else {
                 echo "<script>alert('Username tidak ditemukan');</script>";
-                echo "<script>window.location='login.html';</script>";
+                echo "<script>window.location='login.php';</script>";
                 exit;
             }
         } else {
